@@ -1,201 +1,191 @@
-body {
-  background-color: rgb(214, 225, 237);
-  min-height: 100vh;
-  padding: 2rem;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+*{
+   font-family: "Roboto Condensed", sans-serif;
 }
+body{
+  margin: 0px;
+  padding:0px;
+  /* background:linear-gradient(90deg, #9ba8b7 0%, #96a4eb 100%) ; */
+  background-color: rgb(214, 225, 237);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  flex-direction: column;
+} 
+.container{
 
-.container {
-  width: 100%;
-  max-width: 500px;
-  padding: 20px;
-  margin-top: 40px;
-  background: linear-gradient(15deg, #c0ccec 10%, #340be9 100%);
+ width: 450px;
+padding: 20px;
+ background: linear-gradient(15deg, #c0ccec 10%, #340be9 100%);
   border-radius: 8px;
   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.1),
               2px 6px 10px hwb(232 2% 24% / 0.298),
               4px 10px 14px hsla(120, 96%, 42%, 0.1);
 }
-
-/* Input */
-.input-container {
-  display: flex;
+.input-container{
   width: 100%;
+  display: flex;
+  align-items: center;
   border: 2px solid #70e6f3;
   border-radius: 10px;
   overflow: hidden;
-  background-color: #f9fbfd;
-  margin-bottom: 20px;
+  background-color: rgb(249, 251, 253);
 }
-
-.cityInput {
+.cityInput{
   flex: 1;
-  height: 40px;
+  height: 30px;
   border: none;
   font-size: 16px;
   outline: none;
   padding: 10px;
 }
-
-.search-icon {
+.search-icon{
   padding: 10px;
   cursor: pointer;
-  height: 40px;
+  height: 30px;
+
 }
 
-/* Weather Image */
-.image {
+.image{
+  text-align: center;
+  height: 150px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 30px 0 10px;
+  margin-top: 40px;
 }
 
-.image img {
-  width: 140px;
-  height: auto;
+
+.image img{
+  width: 160px;
+  height: 150px;
+  
 }
 
-/* Weather Text */
-.temp {
+.temp,.location,.country{
+  margin-top: 5px;
+  font-size: 35px;
   text-align: center;
-  font-size: 32px;
+  text-transform: uppercase;
+}
+
+.temp{
   font-weight: 500;
+  margin-top: 10px;
 }
 
-.location {
-  text-align: center;
-  font-size: 36px;
-  font-weight: bold;
-  color: #ffc107;
+.location{
+  color: rgb(249, 200, 23);
+  font-weight: 400;
+  font-size: 40px;
 }
 
-.country {
-  text-align: center;
-  font-size: 18px;
-  color: #545351;
+.country{
+  color: rgb(84, 83, 81);
   font-weight: 500;
+  font-size: 20px;
 }
 
-/* Cards */
-.card {
+.card{
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /* margin-top:px; */
+  text-align: center;
 }
-
 .card div {
-  flex: 1 1 45%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: 10px;
-  text-align: center;
 }
 
-.card div span {
+.card div span{
   font-size: 16px;
 }
 
-.card div span:nth-child(2),
 .humidity-percentage,
-.wind-percentage {
+.wind-percentage,
+.card div span:nth-child(2){
   font-size: 18px;
   font-weight: bold;
   color: #2e2c2c;
 }
 
-.data-container {
+.data-container{
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   margin-top: 15px;
 }
-
-.data {
-  flex: 1 1 45%;
+.data{
+  margin-top: 8px;
+}
+.element{
   text-align: center;
+  
 }
 
-.text {
+.text{
   font-size: 18px;
   color: #3d3c3c;
 }
 
+.copyright{
+  text-align: center;
+  font-size: 14px;
+}
+
+.copyright span{
+  color: #2e2c2c;
+  font-weight: bold;
+}
+
 .city-not-found,
 .error-message,
-.loading-message {
-  text-align: center;
-  color: #4a4747;
-  font-size: 18px;
-  margin-top: 10px;
+.loading-message{
+  margin-top: 5px;
+  color: rgb(74, 71, 71);
+  font-size: 20px;
+  text-align:center;
+  font-weight: 400;
 }
-
-/* -------- Responsive Breakpoints -------- */
-
-/* Mobile */
-@media (max-width: 576px) {
-  .container {
-    max-width: 95%;
+@media (max-width:700px) {
+  body{
+    width: 100%;
+    height: 100%;
   }
+ .container{
+  width: 350px;
+ 
+ }
 
-  .location {
-    font-size: 28px;
-  }
-
-  .temp {
-    font-size: 24px;
-  }
-
-  .image img {
-    width: 100px;
-  }
-
-  .card div {
-    flex: 1 1 100%;
-  }
 }
-
-/* Tablet */
-@media (min-width: 577px) and (max-width: 992px) {
-  .container {
-    max-width: 90%;
+@media (max-width:900px) {
+  body{
+    width: 100%;
+    height: 100%;
   }
+ .container{
+  width: 350px;
 
-  .location {
-    font-size: 32px;
-  }
+ }
 
-  .image img {
-    width: 120px;
-  }
 }
-
-/* Desktop */
-@media (min-width: 993px) {
-  body {
-    padding: 4rem;
-    align-items: flex-start;
+@media (max-width:1200px) {
+  body{
+    width: 100%;
+    height: 75%;
   }
+ .container{
+   width: 350px;
+  
 
-  .container {
-    max-width: 600px;
-    margin-top: 60px;
-  }
-
-  .location {
-    font-size: 40px;
-  }
-
-  .temp {
-    font-size: 36px;
-  }
-
-  .image img {
-    width: 160px;
-  }
+margin-top: 100px;
+ }
 }
