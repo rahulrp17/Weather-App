@@ -25,8 +25,7 @@ export default function SearchBar({
 
   const query = value.trim();
   const showingRecents = query.length < 2;
-  const currentSuggestions =
-    suggestionsFor === query ? suggestions : [];
+  const currentSuggestions = suggestionsFor === query ? suggestions : [];
   const items = showingRecents ? recents : currentSuggestions;
   const listOpen = open && (items.length > 0 || !showingRecents);
 
@@ -118,9 +117,7 @@ export default function SearchBar({
       event.preventDefault();
       setOpen(true);
       if (items.length > 0) {
-        setActive((current) =>
-          current <= 0 ? items.length - 1 : current - 1,
-        );
+        setActive((current) => (current <= 0 ? items.length - 1 : current - 1));
       }
       return;
     }
@@ -157,7 +154,7 @@ export default function SearchBar({
         <input
           ref={inputEl}
           type="text"
-          className="h-9 min-w-0 flex-1 bg-transparent text-sm text-[var(--text)] outline-none placeholder:text-[var(--text-dim)]"
+          className="h-9 min-w-0 flex-1 bg-transparent text-sm text-[var(--text)] outline-none placeholder:text-[var(--text-dim)] focus:outline-none focus-visible:outline-none"
           placeholder="Search city or region"
           aria-label="Search for a city"
           role="combobox"
@@ -255,7 +252,10 @@ export default function SearchBar({
                   onMouseDown={(event) => event.preventDefault()}
                   onClick={() => commit(item)}
                 >
-                  <span className="shrink-0 text-[var(--text-dim)]" aria-hidden="true">
+                  <span
+                    className="shrink-0 text-[var(--text-dim)]"
+                    aria-hidden="true"
+                  >
                     {showingRecents ? (
                       <ClockIcon size={17} />
                     ) : (

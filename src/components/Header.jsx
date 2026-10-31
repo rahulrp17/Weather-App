@@ -55,7 +55,7 @@ export default function Header({
         <div className="flex items-center gap-2 lg:ml-auto">
           <button
             type="button"
-            className={iconButton}
+            className={`${iconButton} h-9! w-9! text-white! hover:bg-gray-700! rounded-full! shadow-none! bg-gray-800! p-1!  `}
             onClick={onLocate}
             disabled={locating}
             aria-label="Use my current location"
@@ -73,13 +73,13 @@ export default function Header({
           </button>
 
           <div
-            className="flex items-center gap-1 rounded-[14px] border border-[var(--border)] bg-[var(--surface-soft)] p-1"
+            className="flex items-center gap-4 rounded-[14px]  p-1"
             role="group"
             aria-label="Temperature unit"
           >
             <button
               type="button"
-              className={`${unitBase} ${unit === "c" ? unitActive : unitIdle}`}
+              className={`${unitBase} text-white! bg-gray-800! p-2! pr-3! hover:bg-gray-700! rounded-full! shadow-none! ${unit === "c" ? unitActive : unitIdle}`}
               aria-pressed={unit === "c"}
               onClick={() => onUnitChange("c")}
             >
@@ -87,7 +87,7 @@ export default function Header({
             </button>
             <button
               type="button"
-              className={`${unitBase} ${unit === "f" ? unitActive : unitIdle}`}
+              className={`${unitBase} text-white! bg-gray-800! p-2! pr-3! hover:bg-gray-700! rounded-full! shadow-none! ${unit === "f" ? unitActive : unitIdle}`}
               aria-pressed={unit === "f"}
               onClick={() => onUnitChange("f")}
             >
